@@ -37,9 +37,11 @@ using namespace Hypertable;
   while (ptr < m_end && isspace(*ptr)) \
     ptr++;
 
-WordStream::WordStream(PropertiesPtr &props, const String &word_file,
+WordStream::WordStream(const String &word_file, unsigned seed,
                        size_t words_per_record, bool random, const char *separator)
   : m_separator(separator), m_words_per_record(words_per_record), m_random(random) {
+
+  ms_rng.seed((uint32_t)seed);
 
   if (!m_random)
     m_offset.resize(words_per_record, 0);

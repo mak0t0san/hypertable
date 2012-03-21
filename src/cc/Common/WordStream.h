@@ -34,7 +34,7 @@ namespace Hypertable {
   class WordStream : public ReferenceCount {
     public:
 
-    WordStream(PropertiesPtr &props, const String &word_file,
+    WordStream(const String &word_file, unsigned seed,
                size_t words_per_record, bool random=false, const char *separator=" ");
     virtual ~WordStream();
 

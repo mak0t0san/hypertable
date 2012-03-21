@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
       _exit(0);
     }
 
-    WordStreamPtr word_stream = new WordStream(properties, get_str("word-file"), 2, false);
+    WordStreamPtr word_stream = new WordStream(get_str("word-file"), 1, 2, false);
 
     while (true)
       cout << word_stream->next() << "\n";
